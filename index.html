@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CyberShield — Anti-Fraud & Penetration Testing</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- MATRIX CANVAS BACKGROUND -->
+  <canvas id="matrixCanvas"></canvas>
+
+  <!-- SCANLINE OVERLAY -->
+  <div class="scanlines"></div>
+  <div class="noise-overlay"></div>
+
+  <!-- CURSOR GLOW -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <span class="logo-bracket">[</span>
+      <span class="logo-text">CYBER<span class="accent">SHIELD</span></span>
+      <span class="logo-bracket">]</span>
+      <span class="logo-blink">_</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home" class="nav-link" data-text="HOME">HOME</a></li>
+      <li><a href="#services" class="nav-link" data-text="SERVICES">SERVICES</a></li>
+      <li><a href="#gallery" class="nav-link" data-text="CASES">CASES</a></li>
+      <li><a href="#about" class="nav-link" data-text="ABOUT">ABOUT</a></li>
+      <li><a href="#contact" class="nav-link cta-nav" data-text="CONTACT">CONTACT</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero" id="home">
+    <div class="hero-grid-overlay"></div>
+    <div class="hero-content">
+      <div class="terminal-window">
+        <div class="terminal-bar">
+          <span class="t-dot red"></span>
+          <span class="t-dot yellow"></span>
+          <span class="t-dot green"></span>
+          <span class="t-title">root@cybershield:~</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line" id="termLine1"></div>
+          <div class="terminal-line" id="termLine2"></div>
+          <div class="terminal-line" id="termLine3"></div>
+          <div class="terminal-cursor">█</div>
+        </div>
+      </div>
+      <h1 class="hero-title">
+        <span class="glitch-text" data-text="WIR JAGEN">WIR JAGEN</span><br />
+        <span class="hero-accent glitch-text" data-text="CYBER-BETRUG">CYBER-BETRUG</span>
+      </h1>
+      <p class="hero-sub">Professioneller Schutz für Unternehmen & Privatpersonen. Aktive Hilfe bei Betrug — Penetration Testing — Forensik.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn-primary">
+          <span class="btn-icon">⚡</span> HILFE JETZT
+        </a>
+        <a href="#services" class="btn-secondary">
+          <span class="btn-icon">⬡</span> UNSERE SERVICES
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-num" data-target="340">0</span><span class="stat-plus">+</span>
+          <span class="stat-label">Fälle gelöst</span>
+        </div>
+        <div class="stat-divider">|</div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="98">0</span><span class="stat-plus">%</span>
+          <span class="stat-label">Erfolgsrate</span>
+        </div>
+        <div class="stat-divider">|</div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="24">0</span><span class="stat-plus">/7</span>
+          <span class="stat-label">Erreichbar</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hex-grid">
+        <div class="hex active"></div>
+        <div class="hex"></div>
+        <div class="hex active"></div>
+        <div class="hex"></div>
+        <div class="hex active"></div>
+        <div class="hex"></div>
+        <div class="hex active"></div>
+        <div class="hex"></div>
+        <div class="hex"></div>
+        <div class="hex active"></div>
+        <div class="hex"></div>
+        <div class="hex active"></div>
+      </div>
+      <div class="shield-container">
+        <div class="shield-ring ring1"></div>
+        <div class="shield-ring ring2"></div>
+        <div class="shield-ring ring3"></div>
+        <div class="shield-icon">🛡</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TICKER / ALERT BAND ===== -->
+  <div class="ticker-band">
+    <div class="ticker-label">⚠ LIVE THREATS</div>
+    <div class="ticker-track">
+      <div class="ticker-items">
+        <span>PHISHING ANGRIFF ERKANNT — MÜNCHEN</span>
+        <span>●</span>
+        <span>RANSOMWARE BLOCKIERT — FRANKFURT</span>
+        <span>●</span>
+        <span>CEO-FRAUD VERHINDERT — BERLIN</span>
+        <span>●</span>
+        <span>DATENLECK GESTOPPT — HAMBURG</span>
+        <span>●</span>
+        <span>SOCIAL ENGINEERING ABGEWEHRT — KÖLN</span>
+        <span>●</span>
+        <span>PHISHING ANGRIFF ERKANNT — MÜNCHEN</span>
+        <span>●</span>
+        <span>RANSOMWARE BLOCKIERT — FRANKFURT</span>
+        <span>●</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SERVICES ===== -->
+  <section class="services" id="services">
+    <div class="section-header">
+      <div class="section-tag">// LEISTUNGEN</div>
+      <h2 class="section-title">Was wir tun</h2>
+      <p class="section-sub">Von der Prävention bis zur aktiven Strafverfolgung — wir sind an Ihrer Seite.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card" data-delay="0">
+        <div class="card-glow"></div>
+        <div class="service-icon-wrap">
+          <div class="service-icon">🔍</div>
+        </div>
+        <h3>Betrugsermittlung</h3>
+        <p>Aktive Unterstützung bei Cyberbetrug, Identitätsdiebstahl und Online-Scam. Spurensuche in digitalen Netzwerken.</p>
+        <div class="card-tags">
+          <span>Forensik</span><span>OSINT</span><span>Tracking</span>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+
+      <div class="service-card featured" data-delay="100">
+        <div class="card-glow"></div>
+        <div class="featured-badge">TOP SERVICE</div>
+        <div class="service-icon-wrap">
+          <div class="service-icon">🧪</div>
+        </div>
+        <h3>Penetration Testing</h3>
+        <p>Angriff ist die beste Verteidigung. Wir testen Ihre Infrastruktur mit echten Hacker-Methoden bevor es andere tun.</p>
+        <div class="card-tags">
+          <span>Web-App</span><span>Netzwerk</span><span>Social Eng.</span>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+
+      <div class="service-card" data-delay="200">
+        <div class="card-glow"></div>
+        <div class="service-icon-wrap">
+          <div class="service-icon">🚨</div>
+        </div>
+        <h3>Incident Response</h3>
+        <p>Sie wurden angegriffen? Wir reagieren sofort — Schadensbegrenzung, Beweissicherung, Wiederherstellung.</p>
+        <div class="card-tags">
+          <span>24/7</span><span>Sofort</span><span>Komplett</span>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+
+      <div class="service-card" data-delay="300">
+        <div class="card-glow"></div>
+        <div class="service-icon-wrap">
+          <div class="service-icon">🏢</div>
+        </div>
+        <h3>Corporate Security</h3>
+        <p>Sicherheitsaudits, Mitarbeiterschulungen und Sicherheitskonzepte für Unternehmen jeder Größe.</p>
+        <div class="card-tags">
+          <span>Audit</span><span>Training</span><span>Konzept</span>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+
+      <div class="service-card" data-delay="400">
+        <div class="card-glow"></div>
+        <div class="service-icon-wrap">
+          <div class="service-icon">👤</div>
+        </div>
+        <h3>Privatpersonen-Schutz</h3>
+        <p>Stalking, Doxxing, Romance Scam, Erpressung — wir helfen Privatpersonen diskret und effektiv.</p>
+        <div class="card-tags">
+          <span>Diskret</span><span>Privat</span><span>Effektiv</span>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+
+      <div class="service-card" data-delay="500">
+        <div class="card-glow"></div>
+        <div class="service-icon-wrap">
+          <div class="service-icon">📋</div>
+        </div>
+        <h3>Rechtliche Begleitung</h3>
+        <p>Beweissicherung nach juristischen Standards, Unterstützung bei Anzeigenstellung und Behördenkommunikation.</p>
+        <div class="card-tags">
+          <span>Juristisch</span><span>Beweise</span><span>Anzeige</span>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== GALLERY / CASES ===== -->
+  <section class="gallery-section" id="gallery">
+    <div class="section-header">
+      <div class="section-tag">// FALLSTUDIEN</div>
+      <h2 class="section-title">Unsere Cases</h2>
+      <p class="section-sub">Echte Fälle. Echte Ergebnisse. (Anonymisiert)</p>
+    </div>
+    <div class="gallery-filters">
+      <button class="filter-btn active" data-filter="all">ALLE</button>
+      <button class="filter-btn" data-filter="fraud">BETRUG</button>
+      <button class="filter-btn" data-filter="pentest">PENTEST</button>
+      <button class="filter-btn" data-filter="corporate">CORPORATE</button>
+      <button class="filter-btn" data-filter="private">PRIVAT</button>
+    </div>
+    <div class="gallery-grid" id="galleryGrid">
+
+      <div class="gallery-item" data-category="fraud">
+        <div class="gallery-inner">
+          <div class="gallery-img fraud-bg">
+            <div class="code-rain-mini" id="rain1"></div>
+            <div class="gallery-badge">GELÖST</div>
+            <div class="gallery-overlay">
+              <div class="gallery-details">
+                <span class="g-tag">CEO Fraud</span>
+                <h4>Gefälschter Geschäftsführer — 80.000€ gerettet</h4>
+                <p>Unternehmen wurde durch gefälschte E-Mails betrogen. Wir konnten den Transfer stoppen und die Täter zurückverfolgen.</p>
+                <span class="g-result">✓ Geld zurückerstattet</span>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <span class="g-category">Betrugsermittlung</span>
+            <h4>CEO Fraud — Mittelstand</h4>
+            <span class="g-time">⏱ 48 Stunden</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item large" data-category="pentest">
+        <div class="gallery-inner">
+          <div class="gallery-img pentest-bg">
+            <div class="scan-animation"></div>
+            <div class="gallery-badge critical">KRITISCH</div>
+            <div class="gallery-overlay">
+              <div class="gallery-details">
+                <span class="g-tag">Pentest</span>
+                <h4>17 kritische Lücken gefunden</h4>
+                <p>Finanzdienstleister mit 200 Mitarbeitern. Wir fanden Zugang zu sensiblen Kundendaten in unter 4 Stunden.</p>
+                <span class="g-result">✓ Alle Lücken geschlossen</span>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <span class="g-category">Penetration Testing</span>
+            <h4>Finanzsektor — Vollaudit</h4>
+            <span class="g-time">⏱ 5 Tage</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="private">
+        <div class="gallery-inner">
+          <div class="gallery-img private-bg">
+            <div class="pulse-rings"></div>
+            <div class="gallery-badge">GELÖST</div>
+            <div class="gallery-overlay">
+              <div class="gallery-details">
+                <span class="g-tag">Romance Scam</span>
+                <h4>Identität des Täters aufgedeckt</h4>
+                <p>Privatperson verlor 15.000€ an Romanzenbetrüger. Vollständige OSINT-Recherche führte zur Anzeige.</p>
+                <span class="g-result">✓ Täter identifiziert</span>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <span class="g-category">Privat</span>
+            <h4>Romance Scam — Privatperson</h4>
+            <span class="g-time">⏱ 7 Tage</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="corporate">
+        <div class="gallery-inner">
+          <div class="gallery-img corporate-bg">
+            <div class="network-anim"></div>
+            <div class="gallery-badge">GESICHERT</div>
+            <div class="gallery-overlay">
+              <div class="gallery-details">
+                <span class="g-tag">Corporate</span>
+                <h4>Ransomware-Angriff gestoppt</h4>
+                <p>Produktionsnetz eines Herstellers unter Angriff. Innerhalb von 6 Stunden isoliert und bereinigt.</p>
+                <span class="g-result">✓ 0 Datenverlust</span>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <span class="g-category">Incident Response</span>
+            <h4>Ransomware — Produktion</h4>
+            <span class="g-time">⏱ 6 Stunden</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item large" data-category="fraud">
+        <div class="gallery-inner">
+          <div class="gallery-img fraud2-bg">
+            <div class="glitch-bg-anim"></div>
+            <div class="gallery-badge">GELÖST</div>
+            <div class="gallery-overlay">
+              <div class="gallery-details">
+                <span class="g-tag">Phishing</span>
+                <h4>Phishing-Kampagne aufgedeckt</h4>
+                <p>Koordinierte Phishing-Serie gegen 3 KMUs. Infrastruktur lokalisiert, Behörden informiert, Accounts gesperrt.</p>
+                <span class="g-result">✓ Kampagne gestoppt</span>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <span class="g-category">Betrugsermittlung</span>
+            <h4>Phishing-Kampagne — KMU</h4>
+            <span class="g-time">⏱ 3 Tage</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="pentest">
+        <div class="gallery-inner">
+          <div class="gallery-img pentest2-bg">
+            <div class="binary-fall"></div>
+            <div class="gallery-badge">REPORT</div>
+            <div class="gallery-overlay">
+              <div class="gallery-details">
+                <span class="g-tag">Web-App</span>
+                <h4>E-Commerce Platform — Volltest</h4>
+                <p>SQL Injection, XSS und unsichere API-Endpunkte gefunden. Detaillierter Bericht mit Lösungswegen.</p>
+                <span class="g-result">✓ Zertifiziert sicher</span>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <span class="g-category">Penetration Testing</span>
+            <h4>E-Commerce — Web-App Test</h4>
+            <span class="g-time">⏱ 3 Tage</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="about" id="about">
+    <div class="about-content">
+      <div class="section-tag">// ÜBER UNS</div>
+      <h2 class="section-title">Wir kämpfen auf Ihrer Seite</h2>
+      <p class="about-text">CyberShield ist ein Team aus ehemaligen IT-Sicherheitsexperten, Forensikern und Ermittlern. Wir nutzen dieselben Methoden wie Angreifer — aber für Ihre Verteidigung.</p>
+      <div class="about-features">
+        <div class="feature">
+          <span class="feat-icon">◈</span>
+          <div>
+            <strong>Zertifiziert</strong>
+            <p>CEH, OSCP, CISSP — echte Qualifikationen</p>
+          </div>
+        </div>
+        <div class="feature">
+          <span class="feat-icon">◈</span>
+          <div>
+            <strong>Legal & Diskret</strong>
+            <p>Strenge Schweigepflicht, DSGVO-konform</p>
+          </div>
+        </div>
+        <div class="feature">
+          <span class="feat-icon">◈</span>
+          <div>
+            <strong>Erfahren</strong>
+            <p>Über 10 Jahre in der Branche</p>
+          </div>
+        </div>
+        <div class="feature">
+          <span class="feat-icon">◈</span>
+          <div>
+            <strong>Deutschlandweit</strong>
+            <p>Remote & vor Ort, 24/7 erreichbar</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="about-visual">
+      <div class="terminal-about">
+        <div class="terminal-bar">
+          <span class="t-dot red"></span>
+          <span class="t-dot yellow"></span>
+          <span class="t-dot green"></span>
+          <span class="t-title">threat_analysis.sh</span>
+        </div>
+        <div class="terminal-body about-term">
+          <p><span class="term-green">$</span> scanning network...</p>
+          <p><span class="term-red">!</span> threat detected: phishing</p>
+          <p><span class="term-yellow">~</span> tracing origin...</p>
+          <p><span class="term-green">✓</span> source identified: 185.220.x.x</p>
+          <p><span class="term-green">$</span> initiating countermeasures</p>
+          <p><span class="term-red">!</span> blocking attack vector</p>
+          <p><span class="term-green">✓</span> client protected.</p>
+          <p><span class="term-green">$</span> generating report...<span class="blink-cursor">█</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact" id="contact">
+    <div class="section-header">
+      <div class="section-tag">// KONTAKT</div>
+      <h2 class="section-title">Jetzt Hilfe anfragen</h2>
+      <p class="section-sub">Vertraulich. Schnell. Professionell.</p>
+    </div>
+    <div class="contact-wrapper">
+      <div class="contact-info">
+        <div class="contact-item">
+          <span class="c-icon">⚡</span>
+          <div>
+            <strong>Notfall-Hotline</strong>
+            <p>+49 (0) 800 000 0000</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="c-icon">✉</span>
+          <div>
+            <strong>Sichere E-Mail</strong>
+            <p>secure@cybershield.de</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="c-icon">🔒</span>
+          <div>
+            <strong>Signal / Threema</strong>
+            <p>Auf Anfrage</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="c-icon">⏰</span>
+          <div>
+            <strong>Erreichbarkeit</strong>
+            <p>24 Stunden / 7 Tage</p>
+          </div>
+        </div>
+        <div class="urgency-box">
+          <div class="urgency-pulse"></div>
+          <strong>Wurden Sie gerade angegriffen?</strong>
+          <p>Rufen Sie sofort an — jede Minute zählt.</p>
+          <a href="tel:+498000000000" class="btn-primary btn-small">JETZT ANRUFEN</a>
+        </div>
+      </div>
+      <form class="contact-form" id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Ihr Name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">E-Mail</label>
+            <input type="email" id="email" placeholder="ihre@email.de" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="service">Service</label>
+          <select id="service">
+            <option value="">— Bitte wählen —</option>
+            <option>Betrugsermittlung</option>
+            <option>Penetration Testing</option>
+            <option>Incident Response</option>
+            <option>Corporate Security</option>
+            <option>Privatpersonen-Schutz</option>
+            <option>Rechtliche Begleitung</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Nachricht</label>
+          <textarea id="message" rows="5" placeholder="Beschreiben Sie Ihr Anliegen..."></textarea>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" id="gdpr" required />
+          <label for="gdpr">Ich stimme der vertraulichen Verarbeitung meiner Daten zu (DSGVO)</label>
+        </div>
+        <button type="submit" class="btn-primary btn-full">
+          <span class="btn-icon">🔒</span> VERSCHLÜSSELT SENDEN
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo-bracket">[</span>
+        <span class="logo-text">CYBER<span class="accent">SHIELD</span></span>
+        <span class="logo-bracket">]</span>
+        <p>Ihr Partner gegen Cyberkriminalität.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Services</h4>
+        <a href="#services">Betrugsermittlung</a>
+        <a href="#services">Penetration Testing</a>
+        <a href="#services">Incident Response</a>
+      </div>
+      <div class="footer-links">
+        <h4>Rechtliches</h4>
+        <a href="#">Impressum</a>
+        <a href="#">Datenschutz</a>
+        <a href="#">AGB</a>
+      </div>
+      <div class="footer-links">
+        <h4>Kontakt</h4>
+        <a href="#">+49 800 000 0000</a>
+        <a href="#">secure@cybershield.de</a>
+        <a href="#">Signal auf Anfrage</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 CyberShield — Alle Rechte vorbehalten</span>
+      <span class="footer-code">// ENCRYPTED CONNECTION ACTIVE</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
